@@ -20,8 +20,6 @@ export const TableArea = ({ list }: Props) => {
       <tbody>
         { list.map((item, index) => ( <TableItem key={index} item={item} /> )) }
       </tbody>
-
-
     </S.Table>
   );
 }
