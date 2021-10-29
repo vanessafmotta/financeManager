@@ -20,6 +20,22 @@ const App = () => {
     setFilteredList(filterListByMonth(list, currentMonth));
   }, [list, currentMonth]);
 
+  useEffect(() => {
+    let incomCount = 0;
+    let expenseCount = 0;
+
+    for (let i in filteredList) {
+      if (categories[filteredList[i].category].expense) {
+        expenseCount += filteredList[i].value;
+      } else {
+        incomCount += filteredList[i].value;
+      }
+    }
+    setIncome(incomCount);
+    setExpense(expenseCount);
+
+  }, [filteredList]);
+
   const handleMonthChange = (newMonth: string) => {
     setCurrentMonth(newMonth);
   }
